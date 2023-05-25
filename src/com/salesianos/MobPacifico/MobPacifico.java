@@ -16,5 +16,4 @@ public abstract class MobPacifico  extends Mob implements Daño {
             salud -= dañoRecibido;
         }
     }
-
 }
