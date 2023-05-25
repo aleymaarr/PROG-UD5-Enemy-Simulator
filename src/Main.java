@@ -15,6 +15,5 @@ public class Main {
         Oveja oveja = new Oveja();
         oveja.moverse();
 
-
     }
 }
