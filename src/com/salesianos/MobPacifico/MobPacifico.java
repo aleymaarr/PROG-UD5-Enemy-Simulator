@@ -9,6 +9,7 @@ public abstract class MobPacifico  extends Mob implements Daño {
         super(salud);
     }
 
+
     @Override
     public void recibirAtaque(int ataque) {
         int dañoRecibido = ataque;
