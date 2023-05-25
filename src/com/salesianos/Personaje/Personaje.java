@@ -1,6 +1,8 @@
 package com.salesianos.Personaje;
 
-public class Personaje {
+import com.salesianos.Interface.Combate;
+
+public class Personaje implements Combate {
 
     private int salud;
     private int defensa;
@@ -34,5 +36,19 @@ public class Personaje {
 
     public void setFuerza(int fuerza) {
         this.fuerza = fuerza;
+    }
+
+    @Override
+    public int atacar() {
+        return fuerza;
+    }
+
+    @Override
+    public void recibirAtaque(int ataque) {
+        int danoRecibido  = ataque - defensa;
+        if (danoRecibido > 0){
+            salud -= danoRecibido;
+        }
+        System.out.println(" ¡El personaje ha recibido " + danoRecibido + " puntos de daño!");
     }
 }
