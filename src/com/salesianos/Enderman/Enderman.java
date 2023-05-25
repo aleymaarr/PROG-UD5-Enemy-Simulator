@@ -10,6 +10,6 @@ public class Enderman extends MobHostil {
 
     @Override
     public void moverse() {
-
+        System.out.println("El Zombie se mueve hacia el personaje.");
     }
 }
