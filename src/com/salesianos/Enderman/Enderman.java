@@ -11,4 +11,5 @@ public class Enderman extends MobHostil {
     public void moverse() {
         System.out.println("El Enderman se teletransporta detrás.");
     }
+
 }
