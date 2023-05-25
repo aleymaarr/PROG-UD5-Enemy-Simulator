@@ -27,12 +27,13 @@ public abstract class MobHostil extends Mob implements Combate {
 
     @Override
     public void recibirAtaque(int ataque) {
-        int danoRecibido = ataque;
-        if (danoRecibido > 0) {
-            salud -= danoRecibido;
+        int dañoRecibido = ataque;
+        if (dañoRecibido > 0) {
+            salud -= dañoRecibido;
         }
-        System.out.println("¡El Mob hostil ha recibido " + danoRecibido + " puntos de daño! Salud restante: " + salud);
+        System.out.println("¡El Mob hostil ha recibido " + dañoRecibido + " puntos de daño! Salud restante: " + salud);
     }
+
 
 
 }
