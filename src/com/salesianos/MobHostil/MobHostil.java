@@ -34,6 +34,4 @@ public abstract class MobHostil extends Mob implements Combate {
         System.out.println("¡El Mob hostil ha recibido " + dañoRecibido + " puntos de daño! Salud restante: " + salud);
     }
 
-
-
 }
