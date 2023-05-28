@@ -2,6 +2,7 @@ import com.salesianos.MobHostil.MobHostil;
 import com.salesianos.Personaje.Personaje;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Main {
 
@@ -45,4 +46,30 @@ public class Main {
             System.out.println("!Has ganado¡ Has derrotado al enemigo en" + turnos + "turnos");
         }
     }
+
+    private int obtenerFuerzaArma(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("¿Qué arma llevara el personaje?");
+        System.out.println("1. Ninguno");
+        System.out.println("2. Espada madera");
+        System.out.println("3. Espada de hierro");
+        System.out.println("4. Espada de diamanate");
+        int opcion = scanner.nextInt();
+
+        int fuerza = 1;
+        switch (opcion){
+            case 2:
+                fuerza = 2;
+                break;
+            case 3:
+                fuerza = 3;
+                break;
+            case 4:
+                fuerza = 5;
+                break;
+        }
+        return fuerza;
+
+    }
+
 }
