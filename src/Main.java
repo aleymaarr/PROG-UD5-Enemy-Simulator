@@ -69,7 +69,31 @@ public class Main {
                 break;
         }
         return fuerza;
-
     }
+
+    private static int obtenerDefensaArmadura() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("¿Qué armadura llevará el personaje?");
+        System.out.println("1. Ninguna");
+        System.out.println("2. Armadura de cuero");
+        System.out.println("3. Armadura de hierro");
+        System.out.println("4. Armadura de diamante");
+        int opcion = scanner.nextInt();
+
+        int defensa = 0;
+        switch (opcion) {
+            case 2:
+                defensa = 1;
+                break;
+            case 3:
+                defensa = 2;
+                break;
+            case 4:
+                defensa = 3;
+                break;
+        }
+        return defensa;
+    }
+
 
 }
