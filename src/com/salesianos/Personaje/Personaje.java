@@ -51,4 +51,5 @@ public class Personaje implements Combate {
         }
         System.out.println(" ¡El personaje ha recibido " + danoRecibido + " puntos de daño!");
     }
+
 }
