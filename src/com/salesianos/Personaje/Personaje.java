@@ -45,11 +45,12 @@ public class Personaje implements Combate {
 
     @Override
     public void recibirAtaque(int ataque) {
-        int danoRecibido  = ataque - defensa;
-        if (danoRecibido > 0){
-            salud -= danoRecibido;
+        int dano = ataque - defensa;
+        if (dano > 0) {
+            salud -= dano;
+            System.out.println("El personaje recibe " + dano + " puntos de daño. Salud restante: " + salud);
+        } else {
+            System.out.println("El personaje bloquea el ataque. Salud restante: " + salud);
         }
-        System.out.println(" ¡El personaje ha recibido " + danoRecibido + " puntos de daño!");
     }
-
 }
