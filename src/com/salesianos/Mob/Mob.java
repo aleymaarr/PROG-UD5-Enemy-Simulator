@@ -8,6 +8,10 @@ public abstract class Mob {
         this.salud = salud;
     }
 
+    public int getSalud() {
+        return salud;
+    }
+
     public abstract void moverse();
 
 }
