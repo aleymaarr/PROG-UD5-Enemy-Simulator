@@ -12,9 +12,8 @@ public abstract class MobPacifico  extends Mob implements Daño {
 
     @Override
     public void recibirAtaque(int ataque) {
-        int dañoRecibido = ataque;
-        if (dañoRecibido > 0) {
-            salud -= dañoRecibido;
-        }
+        int dano = ataque;
+        salud -= dano;
+        System.out.println("El mob pacífico recibe " + dano + " puntos de daño. Salud restante: " + salud);
     }
 }
