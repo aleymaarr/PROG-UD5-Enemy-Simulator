@@ -1,5 +1,7 @@
+import com.salesianos.Enderman.Enderman;
 import com.salesianos.MobHostil.MobHostil;
 import com.salesianos.Personaje.Personaje;
+import com.salesianos.Zombie.Zombie;
 
 import java.util.Random;
 import java.util.Scanner;
@@ -47,7 +49,7 @@ public class Main {
         }
     }
 
-    private int obtenerFuerzaArma(){
+    private static int obtenerFuerzaArma(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("¿Qué arma llevara el personaje?");
         System.out.println("1. Ninguno");
@@ -96,4 +98,14 @@ public class Main {
     }
 
 
+    private static MobHostil generarEnemigoHostil() {
+        Random random = new Random();
+        int opcionEnemigo = random.nextInt(2);
+
+        if (opcionEnemigo == 0) {
+            return new Zombie();
+        } else {
+            return new Enderman();
+        }
+    }
 }
