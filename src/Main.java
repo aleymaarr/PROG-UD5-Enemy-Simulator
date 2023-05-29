@@ -93,7 +93,7 @@ public class Main {
             mob.recibirAtaque(personaje.atacar());
 
             if (random.nextBoolean()) {
-                System.out.println("El enemigo ataca al personaje.");
+                System.out.println("El " + mob.getNombre() + " ataca al personaje.");
                 personaje.recibirAtaque(mob.atacar());
             } else {
                 System.out.println("El enemigo se mueve.");
