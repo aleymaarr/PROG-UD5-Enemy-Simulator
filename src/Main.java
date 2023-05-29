@@ -10,103 +10,105 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("¡Bienvenido al juego!");
-
-        int fuerza = obtenerFuerzaArma();
-        int defensa = obtenerDefensaArmadura();
-
-        Personaje personaje = new Personaje(fuerza,defensa);
-        MobHostil enemigo = generarEnemigoHostil();
-
-        int turnos = 0;
+        Scanner scanner = new Scanner(System.in);
         Random random = new Random();
 
-        while(personaje.getSalud() > 0 && enemigo.getSalud() > 0){
+        System.out.println("¡Bienvenido a la simulación de combate!");
 
-            int danoPersonaje = personaje.atacar();
-            enemigo.recibirAtaque(danoPersonaje);
+        int opcionArma;
+        do {
+            System.out.println("¿Qué arma llevará el personaje?");
+            System.out.println("1. Ninguna");
+            System.out.println("2. Espada de madera");
+            System.out.println("3. Espada de hierro");
+            System.out.println("4. Espada de diamante");
+            opcionArma = scanner.nextInt();
+        } while (opcionArma < 1 || opcionArma > 4);
 
-            if(enemigo.getSalud() <= 0){
+
+        int fuerzaPersonaje;
+        switch (opcionArma) {
+            case 1:
+                fuerzaPersonaje = 1;
                 break;
+            case 2:
+                fuerzaPersonaje = 2;
+                break;
+            case 3:
+                fuerzaPersonaje = 3;
+                break;
+            case 4:
+                fuerzaPersonaje = 5;
+                break;
+            default:
+                fuerzaPersonaje = 1;
+                break;
+        }
+
+
+        int opcionArmadura;
+        do {
+            System.out.println("¿Qué armadura llevará el personaje?");
+            System.out.println("1. Ninguna");
+            System.out.println("2. De cuero");
+            System.out.println("3. De hierro");
+            System.out.println("4. De diamante");
+            opcionArmadura = scanner.nextInt();
+        } while (opcionArmadura < 1 || opcionArmadura > 4);
+
+
+        int defensaPersonaje;
+        switch (opcionArmadura) {
+            case 1:
+                defensaPersonaje = 0;
+                break;
+            case 2:
+                defensaPersonaje = 1;
+                break;
+            case 3:
+                defensaPersonaje = 2;
+                break;
+            case 4:
+                defensaPersonaje = 3;
+                break;
+            default:
+                defensaPersonaje = 0;
+                break;
+        }
+
+
+        Personaje personaje = new Personaje(defensaPersonaje, fuerzaPersonaje);
+        MobHostil mob;
+
+        if (random.nextBoolean()) {
+            mob = new Zombie();
+        } else {
+            mob = new Enderman();
+        }
+
+        int turnos = 1;
+        while (personaje.getSalud() > 0 && mob.getSalud() > 0) {
+            System.out.println("Turno " + turnos);
+            System.out.println("El personaje ataca al enemigo.");
+            mob.recibirAtaque(personaje.atacar());
+
+            if (random.nextBoolean()) {
+                System.out.println("El enemigo ataca al personaje.");
+                personaje.recibirAtaque(mob.atacar());
+            } else {
+                System.out.println("El enemigo se mueve.");
+                mob.moverse();
             }
-
-            int accionEnemigo = random.nextInt(2);
-
-            if (accionEnemigo == 0){
-                int danoEnemigo = enemigo.atacar();
-                personaje.recibirAtaque(danoEnemigo);
-            }else{
-                enemigo.moverse();
-            }
-
             turnos++;
         }
 
-        if (personaje.getSalud() <= 0){
-            System.out.println("¡Has sido derrotado! El enemigo te han vencido en" + turnos + "turnos");
-        }else{
-            System.out.println("!Has ganado¡ Has derrotado al enemigo en" + turnos + "turnos");
-        }
-    }
-
-    private static int obtenerFuerzaArma(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("¿Qué arma llevara el personaje?");
-        System.out.println("1. Ninguno");
-        System.out.println("2. Espada madera");
-        System.out.println("3. Espada de hierro");
-        System.out.println("4. Espada de diamanate");
-        int opcion = scanner.nextInt();
-
-        int fuerza = 1;
-        switch (opcion){
-            case 2:
-                fuerza = 2;
-                break;
-            case 3:
-                fuerza = 3;
-                break;
-            case 4:
-                fuerza = 5;
-                break;
-        }
-        return fuerza;
-    }
-
-    private static int obtenerDefensaArmadura() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("¿Qué armadura llevará el personaje?");
-        System.out.println("1. Ninguna");
-        System.out.println("2. Armadura de cuero");
-        System.out.println("3. Armadura de hierro");
-        System.out.println("4. Armadura de diamante");
-        int opcion = scanner.nextInt();
-
-        int defensa = 0;
-        switch (opcion) {
-            case 2:
-                defensa = 1;
-                break;
-            case 3:
-                defensa = 2;
-                break;
-            case 4:
-                defensa = 3;
-                break;
-        }
-        return defensa;
-    }
-
-
-    private static MobHostil generarEnemigoHostil() {
-        Random random = new Random();
-        int opcionEnemigo = random.nextInt(2);
-
-        if (opcionEnemigo == 0) {
-            return new Zombie();
+        System.out.println("¡Combate finalizado!");
+        System.out.println("Turnos totales: " + (turnos - 1));
+        if (personaje.getSalud() > 0) {
+            System.out.println("¡El personaje ha salido victorioso!");
         } else {
-            return new Enderman();
+            System.out.println("¡El enemigo ha salido victorioso!");
         }
     }
-}
+    }
 

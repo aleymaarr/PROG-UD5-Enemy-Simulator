@@ -20,6 +20,11 @@ public abstract class MobHostil extends Mob implements Combate {
         this.fuerza = fuerza;
     }
 
+    public String getNombre(){
+        return "Enemigo";
+    }
+
+
     @Override
     public int atacar() {
         return fuerza;
