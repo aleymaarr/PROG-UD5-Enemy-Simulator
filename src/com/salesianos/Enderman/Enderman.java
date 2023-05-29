@@ -16,8 +16,4 @@ public class Enderman extends MobHostil {
     public String getNombre() {
         return "Enderman";
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> menu
 }

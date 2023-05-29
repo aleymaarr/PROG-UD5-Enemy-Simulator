@@ -24,10 +24,6 @@ public abstract class MobHostil extends Mob implements Combate {
         return "Enemigo";
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> menu
     @Override
     public int atacar() {
         return fuerza;
